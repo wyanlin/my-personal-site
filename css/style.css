@@ -1,4 +1,4 @@
-/* 现代简洁的CSS样式 */
+/* 现代简洁的个人博客样式 */
 :root {
   --primary-color: #4f46e5;
   --secondary-color: #6366f1;
@@ -18,7 +18,7 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
@@ -32,7 +32,7 @@ body {
 }
 
 /* 头部导航 */
-.header {
+.site-header {
   background: var(--bg-color);
   box-shadow: var(--shadow);
   position: sticky;
@@ -40,44 +40,65 @@ body {
   z-index: 100;
 }
 
-.nav-container {
+.site-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
 }
 
-.logo {
+.site-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color);
   text-decoration: none;
+  margin: 0;
 }
 
-.nav-links {
+.main-nav {
   display: flex;
   gap: 2rem;
   list-style: none;
 }
 
-.nav-links a {
+.main-nav a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
   transition: var(--transition);
 }
 
-.nav-links a:hover {
+.main-nav a:hover,
+.main-nav a.active {
   color: var(--primary-color);
 }
 
 /* 主要内容区域 */
-.main-content {
+main {
   min-height: calc(100vh - 120px);
   padding: 3rem 0;
 }
 
 /* 首页文章列表 */
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: var(--light-text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -105,15 +126,19 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.post-title {
+.post-card h3 {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
-  color: var(--text-color);
-  text-decoration: none;
 }
 
-.post-title:hover {
+.post-card h3 a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.post-card h3 a:hover {
   color: var(--primary-color);
 }
 
@@ -122,64 +147,8 @@ body {
   line-height: 1.6;
 }
 
-/* 文章详情页 */
-.article-header {
-  margin-bottom: 2rem;
-}
-
-.article-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.article-meta {
-  color: var(--light-text);
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-.article-content {
-  line-height: 1.8;
-  font-size: 1.125rem;
-}
-
-.article-content p {
-  margin-bottom: 1.5rem;
-}
-
-.article-content h2 {
-  font-size: 1.75rem;
-  margin: 2rem 0 1rem 0;
-  font-weight: 700;
-}
-
-.article-content h3 {
-  font-size: 1.375rem;
-  margin: 1.5rem 0 1rem 0;
-  font-weight: 600;
-}
-
-/* 关于页面 */
-.about-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.about-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
-.about-content p {
-  margin-bottom: 1.5rem;
-  font-size: 1.125rem;
-}
-
 /* 页脚 */
-.footer {
+.site-footer {
   background: var(--card-bg);
   padding: 2rem 0;
   text-align: center;
@@ -189,12 +158,12 @@ body {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .nav-container {
+  .site-header .container {
     flex-direction: column;
     gap: 1rem;
   }
   
-  .nav-links {
+  .main-nav {
     gap: 1rem;
   }
   
@@ -203,26 +172,15 @@ body {
     gap: 1.5rem;
   }
   
-  .article-title {
+  .hero h2 {
     font-size: 2rem;
   }
   
-  .main-content {
+  main {
     padding: 2rem 0;
   }
   
   .container {
     padding: 0 15px;
-  }
-}
-
-/* 移动端菜单（简化版） */
-@media (max-width: 480px) {
-  .post-title {
-    font-size: 1.125rem;
-  }
-  
-  .article-content {
-    font-size: 1rem;
   }
 }
